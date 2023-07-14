@@ -5,7 +5,7 @@ import os
 TITLE = "Spaceships Game"
 SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 1100
-FPS = 30
+FPS = 60
 IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 
 # Assets Constants
@@ -13,7 +13,9 @@ ICON = pygame.image.load(os.path.join(IMG_DIR, "Spaceship/spaceship.png"))
 
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 
-BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
+BG_1 = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track1.png'))
+BG_2 = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track2.png'))
+BG_3 = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track3.png'))
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 

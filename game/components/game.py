@@ -1,6 +1,6 @@
 import pygame
 
-from game.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE
+from game.utils.constants import BG_1, BG_2, BG_3, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE
 from game.components.spaceship import spaceship
 
 class Game:
@@ -15,6 +15,8 @@ class Game:
         self.x_pos_bg = 0
         self.y_pos_bg = 0
         self.player = spaceship()
+        self.elapsed_time = 0
+        self.current_bg = BG_1
 
     def run(self):
         # Game loop: events - update - draw
@@ -35,6 +37,8 @@ class Game:
         user_inpunt = pygame.key.get_pressed()
         self.player.update(self.game_speed, user_inpunt)
         self.player.check_bounds(SCREEN_WIDTH)
+        self.elapsed_time += self.clock.tick(FPS) / 1000 
+        self.change_background()
         
 
         
@@ -47,7 +51,7 @@ class Game:
         pygame.display.flip()
 
     def draw_background(self):
-        image = pygame.transform.scale(BG, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        image = pygame.transform.scale(self.current_bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
         image_height = image.get_height()
         self.screen.blit(image, (self.x_pos_bg, self.y_pos_bg))
         self.screen.blit(image, (self.x_pos_bg, self.y_pos_bg - image_height))
@@ -56,3 +60,12 @@ class Game:
             self.y_pos_bg = 0
         self.y_pos_bg += self.game_speed
 
+    def change_background(self):
+        if self.elapsed_time >= 60: 
+            if self.current_bg == BG_1:
+                self.current_bg = BG_2
+            elif self.current_bg == BG_2:
+                self.current_bg = BG_3
+            else:
+                self.current_bg = BG_1
+            self.elapsed_time -= 60 

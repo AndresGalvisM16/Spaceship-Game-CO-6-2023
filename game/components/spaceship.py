@@ -13,6 +13,7 @@ class spaceship:
         self.rect = self.image.get_rect()
         self.rect.x =  self.X_POS 
         self.rect.y = self.Y_POS 
+        self.speed = 40
         
 
     def update(self, game_speed, user_input):
