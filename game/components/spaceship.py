@@ -1,5 +1,5 @@
 import pygame
-from game.utils.constants import SPACESHIP, SCREEN_WIDTH
+from game.utils.constants import SPACESHIP, SCREEN_WIDTH, SCREEN_HEIGHT
 
 class spaceship:
     WIDTH = 40
@@ -17,9 +17,14 @@ class spaceship:
 
     def update(self, game_speed, user_input):
         if user_input[pygame.K_LEFT]:
-            self.move_left(game_speed)
+            self.rect.x -= game_speed 
         if user_input[pygame.K_RIGHT]:
-            self.move_right(game_speed)     
+            self.rect.x += game_speed
+        if user_input[pygame.K_UP]:
+            self.move_up(game_speed)
+        if user_input[pygame.K_DOWN]: 
+            self.move_down(game_speed)
+               
        
         
     def draw(self,screen):
@@ -31,7 +36,24 @@ class spaceship:
 
     def move_right(self, game_speed):
         if self.rect.right < SCREEN_WIDTH:
-            self.rect.x += game_speed            
+            self.rect.x += game_speed 
+
+
+    def move_up(self, game_speed):
+        if self.rect.top > 0:
+            self.rect.y -= game_speed
+
+
+    def move_down(self, game_speed):
+        if self.rect.bottom < SCREEN_HEIGHT: 
+            self.rect.y += game_speed 
+
+
+    def check_bounds(self, SCREEN_WIDTH ):
+        if self.rect.right < 0:
+            self.rect.left = SCREEN_WIDTH
+        elif self.rect.left > SCREEN_WIDTH:
+            self.rect.right = 0                   
 
 
 

@@ -34,6 +34,7 @@ class Game:
     def update(self):
         user_inpunt = pygame.key.get_pressed()
         self.player.update(self.game_speed, user_inpunt)
+        self.player.check_bounds(SCREEN_WIDTH)
         
 
         
