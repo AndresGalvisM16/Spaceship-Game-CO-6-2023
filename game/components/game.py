@@ -1,6 +1,7 @@
+import random
 import pygame
 
-from game.utils.constants import BG_1, BG_2, BG_3, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE
+from game.utils.constants import BG_1, BG_2, BG_3, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, BACKGROUND_IMAGES
 from game.components.spaceship import spaceship
 from game.components.enemies.enemy_handler import EnemyHandler
 
@@ -18,7 +19,13 @@ class Game:
         self.player = spaceship()
         self.enemy_handler = EnemyHandler()
         self.elapsed_time = 0
-        self.current_bg = BG_1
+        self.current_bg_index = 0
+        self.current_bg = BACKGROUND_IMAGES[self.current_bg_index]
+        self.next_bg_index = (self.current_bg_index + 1) % len(BACKGROUND_IMAGES)
+        self.next_bg = BACKGROUND_IMAGES[self.next_bg_index]
+        self.transition_alpha = 0
+        self.transition_speed = 2
+
 
     def run(self):
         # Game loop: events - update - draw
@@ -40,7 +47,8 @@ class Game:
         self.player.update(self.game_speed, user_inpunt)
         self.player.check_bounds(SCREEN_WIDTH)
         self.enemy_handler.update()
-        self.elapsed_time += self.clock.tick(FPS) / 1000 
+        self.elapsed_time += self.clock.tick(FPS) / 1000
+        self.y_pos_bg += self.game_speed
         self.change_background()
         
 
@@ -55,21 +63,30 @@ class Game:
         pygame.display.flip()
 
     def draw_background(self):
-        image = pygame.transform.scale(self.current_bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
-        image_height = image.get_height()
-        self.screen.blit(image, (self.x_pos_bg, self.y_pos_bg))
-        self.screen.blit(image, (self.x_pos_bg, self.y_pos_bg - image_height))
-        if self.y_pos_bg >= SCREEN_HEIGHT:
-            self.screen.blit(image, (self.x_pos_bg, self.y_pos_bg - image_height))
-            self.y_pos_bg = 0
-        self.y_pos_bg += self.game_speed
+        image1 = pygame.transform.scale(self.current_bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        image2 = pygame.transform.scale(self.next_bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        self.screen.blit(image1, (self.x_pos_bg, self.y_pos_bg))
+        self.screen.blit(image2, (self.x_pos_bg, self.y_pos_bg - SCREEN_HEIGHT))
+
+       
+
 
     def change_background(self):
-        if self.elapsed_time >= 60: 
-            if self.current_bg == BG_1:
-                self.current_bg = BG_2
-            elif self.current_bg == BG_2:
-                self.current_bg = BG_3
-            else:
-                self.current_bg = BG_1
-            self.elapsed_time -= 60 
+        if self.y_pos_bg >= SCREEN_HEIGHT:
+            self.y_pos_bg = 0
+            self.current_bg_index = self.next_bg_index
+            self.current_bg = BACKGROUND_IMAGES[self.current_bg_index]
+            self.next_bg_index = (self.current_bg_index + 1) % len(BACKGROUND_IMAGES)
+            self.next_bg = BACKGROUND_IMAGES[self.next_bg_index]
+         
+
+        
+
+       
+       
+        
+
+        
+    
+    
+            

@@ -1,3 +1,4 @@
+import random
 import pygame
 import os
 
@@ -11,9 +12,22 @@ IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 # Assets Constants
 ICON = pygame.image.load(os.path.join(IMG_DIR, "Spaceship/spaceship.png"))
 
+
+
+
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 
-BG_1 = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track1.png'))
+
+BACKGROUND_IMAGES = [
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/Track1.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/Track11.png'))
+]
+
+
+BG_1 = random.choice(BACKGROUND_IMAGES)
+
+
+
 BG_2 = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track2.png'))
 BG_3 = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track3.png'))
 
