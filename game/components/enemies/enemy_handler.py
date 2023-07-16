@@ -1,8 +1,9 @@
 from game.components.enemies.ship import ship
+from game.components.enemies.ship import AlienEnemy
+
 class EnemyHandler:
     def __init__(self):
         self.enemies = []
-
 
     def update(self):
         self.add_enemy()
@@ -11,17 +12,21 @@ class EnemyHandler:
             if not enemy.is_visible:
                 self.remove_enemy(enemy)
 
-        
     def draw(self, screen):
         for enemy in self.enemies:
             enemy.draw(screen)
 
     def add_enemy(self):
-        if len(self.enemies) <5:
-            self.enemies.append(ship()) 
+        if len(self.enemies) < 7:
+            if len(self.enemies) < 1:
+                self.enemies.append(AlienEnemy())
+            else:
+                self.enemies.append(ship())
 
     def remove_enemy(self, enemy):
         self.enemies.remove(enemy)
+
+
 
 
 

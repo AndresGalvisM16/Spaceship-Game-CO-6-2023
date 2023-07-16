@@ -42,6 +42,7 @@ BULLET = pygame.image.load(os.path.join(IMG_DIR, "Bullet/bullet_1.png"))
 
 BULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, "Bullet/bullet_2.png"))
 ENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, "Enemy/enemy_1.png"))
+ALIEN = pygame.image.load(os.path.join(IMG_DIR, "Enemy/Alien.png")) 
 
 FONT_STYLE = 'freesansbold.ttf'
 

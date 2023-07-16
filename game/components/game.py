@@ -4,6 +4,7 @@ import pygame
 from game.utils.constants import BG_1, BG_2, BG_3, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, BACKGROUND_IMAGES
 from game.components.spaceship import spaceship
 from game.components.enemies.enemy_handler import EnemyHandler
+from game.components.enemies.ship import AlienEnemy
 
 class Game:
     def __init__(self):
@@ -18,6 +19,7 @@ class Game:
         self.y_pos_bg = 0
         self.player = spaceship()
         self.enemy_handler = EnemyHandler()
+        self.ship = AlienEnemy()
         self.elapsed_time = 0
         self.current_bg_index = 0
         self.current_bg = BACKGROUND_IMAGES[self.current_bg_index]
@@ -50,6 +52,8 @@ class Game:
         self.elapsed_time += self.clock.tick(FPS) / 1000
         self.y_pos_bg += self.game_speed
         self.change_background()
+        self.ship.update()
+       
         
 
         
