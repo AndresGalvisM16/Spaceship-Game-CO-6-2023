@@ -4,7 +4,7 @@ import math
 
 
 from game.components.enemies.enemy import Enemy
-from game.utils.constants import ENEMY_1, ALIEN, SCREEN_WIDTH, SCREEN_HEIGHT,FPS
+from game.utils.constants import ENEMY_1, ALIEN, SCREEN_WIDTH, SCREEN_HEIGHT,FPS, OVNI, SHIP_EAT, BOSS
 
 class ship(Enemy):
     WIDTH = 40
@@ -17,9 +17,9 @@ class ship(Enemy):
 
         
 class AlienEnemy(Enemy):
-    WIDTH = 40
-    HEIGHT = 60
-    ANGLE_SPEED = 0.06
+    WIDTH = 120
+    HEIGHT = 160
+    ANGLE_SPEED = 0.04
     RADIUS = 150
 
     def __init__(self):
@@ -41,27 +41,57 @@ class AlienEnemy(Enemy):
         super().update()
 
 
+class Onvi(Enemy):
+    WIDTH = 60
+    HEIGHT = 80
+    SPEED = 3
 
+    def __init__(self):
+        self.image = OVNI
+        self.image = pygame.transform.scale(self.image, (self.WIDTH, self.HEIGHT))
+        super().__init__(self.image)
+        self.rect.y = 0
+        self.rect.x = random.randint(0, SCREEN_WIDTH - self.WIDTH)
+
+        self.direction = random.choice([-1, 1])
+        self.speed_x = self.SPEED * self.direction
+
+    def move(self):
+        self.rect.x += self.speed_x
+
+        if self.rect.right < 0:
+            self.rect.left = SCREEN_WIDTH
+        elif self.rect.left > SCREEN_WIDTH:
+            self.rect.right = 0
+
+    def update(self):
+        self.move()
+        super().update()
 
 
     
 
+class Ship_eat(Enemy):
+    WIDTH = 40
+    HEIGHT = 60
+    SPEED = 10
 
-        
+    def __init__(self):
+        self.image = SHIP_EAT
+        self.image = pygame.transform.scale(self.image, (self.WIDTH, self.HEIGHT))
+        super().__init__(self.image)
+        self.rect.y = -self.HEIGHT
+        self.rect.x = random.randint(0, SCREEN_WIDTH - self.WIDTH)
 
-        
+    def move(self):
+        self.rect.y += self.SPEED
+
+    def update(self):
+        self.move()
+        super().update()
 
 
-     
-    
 
-
-        
-
-
-    
-
-        
 
       
 

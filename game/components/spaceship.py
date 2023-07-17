@@ -2,8 +2,8 @@ import pygame
 from game.utils.constants import SPACESHIP, SCREEN_WIDTH, SCREEN_HEIGHT
 
 class spaceship:
-    WIDTH = 40
-    HEIGHT = 60
+    WIDTH = 60
+    HEIGHT = 90
     X_POS = (SCREEN_WIDTH // 2) - WIDTH
     Y_POS = 500
 
@@ -50,11 +50,12 @@ class spaceship:
             self.rect.y += game_speed 
 
 
-    def check_bounds(self, SCREEN_WIDTH ):
-        if self.rect.right < 0:
-            self.rect.left = SCREEN_WIDTH
-        elif self.rect.left > SCREEN_WIDTH:
-            self.rect.right = 0                   
+    def check_bounds(self, screen_width):
+        if self.rect.left < 0:
+            self.rect.left = 0
+        elif self.rect.right > screen_width:
+            self.rect.right = screen_width
+
 
 
 
