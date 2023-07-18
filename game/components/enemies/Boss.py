@@ -19,9 +19,9 @@ class Boss(Enemy):
         self.rect.y = -self.HEIGHT
         self.rect.x = (SCREEN_WIDTH - self.WIDTH) // 2  
 
-    def move(self):
+    def move(self, bullet_handler):
         self.rect.y += self.SPEED
 
-    def update(self):
-        self.move()
-        super().update()
+    def update(self,bullet_handler):
+        self.move(bullet_handler)
+        super().update(bullet_handler)

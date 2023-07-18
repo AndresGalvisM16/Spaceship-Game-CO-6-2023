@@ -22,6 +22,7 @@ class AlienEnemy(Enemy):
     ANGLE_SPEED = 0.04
     RADIUS = 150
 
+
     def __init__(self):
         self.image = ALIEN
         self.image = pygame.transform.scale(self.image, (self.WIDTH, self.HEIGHT))
@@ -30,15 +31,16 @@ class AlienEnemy(Enemy):
         self.center_x = SCREEN_WIDTH // 2
         self.center_y = 0
 
-    def move(self):
+    def move(self, bullet_handler):
         self.angle += self.ANGLE_SPEED
         new_x = self.center_x + int(self.RADIUS * math.cos(self.angle))
         new_y = self.center_y + int(self.RADIUS * math.sin(self.angle))
         self.rect.center = (new_x, new_y)
 
-    def update(self):
-        self.move()
-        super().update()
+    def update(self, bullet_handler):
+        self.move(bullet_handler)
+        super().update(bullet_handler)
+
 
 
 class Onvi(Enemy):
@@ -56,7 +58,7 @@ class Onvi(Enemy):
         self.direction = random.choice([-1, 1])
         self.speed_x = self.SPEED * self.direction
 
-    def move(self):
+    def move(self, bullet_handler):
         self.rect.x += self.speed_x
 
         if self.rect.right < 0:
@@ -64,9 +66,9 @@ class Onvi(Enemy):
         elif self.rect.left > SCREEN_WIDTH:
             self.rect.right = 0
 
-    def update(self):
-        self.move()
-        super().update()
+    def update(self, bullet_handler):
+        self.move(bullet_handler)
+        super().update(bullet_handler)
 
 
     
@@ -83,12 +85,12 @@ class Ship_eat(Enemy):
         self.rect.y = -self.HEIGHT
         self.rect.x = random.randint(0, SCREEN_WIDTH - self.WIDTH)
 
-    def move(self):
+    def move(self, bullet_handler):
         self.rect.y += self.SPEED
 
-    def update(self):
-        self.move()
-        super().update()
+    def update(self, bullet_handler):
+        self.move(bullet_handler)
+        super().update(bullet_handler)
 
 
 

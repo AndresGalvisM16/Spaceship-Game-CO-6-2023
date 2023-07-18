@@ -6,6 +6,7 @@ class spaceship:
     HEIGHT = 90
     X_POS = (SCREEN_WIDTH // 2) - WIDTH
     Y_POS = 500
+    
 
     def __init__(self):
         self.image = SPACESHIP
@@ -14,6 +15,8 @@ class spaceship:
         self.rect.x =  self.X_POS 
         self.rect.y = self.Y_POS 
         self.speed = 40
+        self.is_alive = True
+        
         
 
     def update(self, game_speed, user_input):
@@ -55,6 +58,7 @@ class spaceship:
             self.rect.left = 0
         elif self.rect.right > screen_width:
             self.rect.right = screen_width
+    
 
 
 
