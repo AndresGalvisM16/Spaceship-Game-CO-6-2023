@@ -35,8 +35,10 @@ class Game:
         self.next_bg = BACKGROUND_IMAGES[self.next_bg_index]
         self.score = 0
         self.number_deaths = 0
-
-       
+        self.total_score = 0
+        self.max_score = 0
+        self.record_score = 0
+        self.start_time = 0  
 
     def run(self):
         self.running = True
@@ -55,6 +57,7 @@ class Game:
             elif event.type == pygame.KEYDOWN and not self.playing:
                 self.reset()
                 self.playing = True
+                self.start_time = time.time()
         
 
     def update(self):
@@ -75,7 +78,17 @@ class Game:
                 self.playing = False
                 self.number_deaths += 1
      
-       
+                self.total_score += self.score
+
+                if self.score > self.max_score:
+                    self.max_score = self.score
+
+                if self.score > self.record_score:
+                    self.record_score = self.score
+
+            self.elapsed_time = time.time() - self.start_time
+
+           
 
     def draw(self):
         self.draw_background()
@@ -96,7 +109,7 @@ class Game:
         image2 = pygame.transform.scale(self.next_bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
         self.screen.blit(image1, (self.x_pos_bg, self.y_pos_bg))
         self.screen.blit(image2, (self.x_pos_bg, self.y_pos_bg - SCREEN_HEIGHT))
-
+    
     def change_background(self):
         if self.y_pos_bg >= SCREEN_HEIGHT:
             self.y_pos_bg = 0
@@ -108,6 +121,10 @@ class Game:
     def reset_elapsed_time(self):
         self.elapsed_time = 0
 
+    
+    def get_record_score(self):
+        return self.record_score
+
 
 
     def draw_menu(self):
@@ -117,18 +134,32 @@ class Game:
         else:
             text,text_rect = text_utils.get_message("press any key to restart", 30, WHITE)
             score, score_rect = text_utils.get_message(f"your score is:{self.score}", 30, WHITE, height=SCREEN_HEIGHT//2 + 50)
+            total_score, total_score_rect = text_utils.get_message(f"Total score: {self.total_score}", 30, WHITE, height=SCREEN_HEIGHT//2 + 100) 
+            record_score, record_score_rect = text_utils.get_message(f"Record Score: {self.get_record_score()}", 30, WHITE, height=SCREEN_HEIGHT//2 + 150)
+            time_text, time_rect = text_utils.get_message(f"Time: {int(self.elapsed_time)} s", 30, WHITE, height=SCREEN_HEIGHT // 2 + 200)
+            self.screen.blit(record_score, record_score_rect)
             self.screen.blit(text, text_rect)
             self.screen.blit(score, score_rect)
+            self.screen.blit(total_score, total_score_rect)
+            self.screen.blit(time_text, time_rect)
 
+
+          
+
+        
     def draw_score(self):
         score, score_rect = text_utils.get_message(f"your score is:{self.score}", 20, WHITE, 1000, 40)
+        time_text, time_rect = text_utils.get_message(f"Time: {int(self.elapsed_time)} s", 20, WHITE, 60, 40)
+        self.screen.blit(time_text, time_rect)
         self.screen.blit(score, score_rect)
-
+    
 
     def reset(self):
         self.player.reset()
         self.enemy_handler.reset()
         self.bullet_handler.reset()
         self.score = 0
+    
+
     
             

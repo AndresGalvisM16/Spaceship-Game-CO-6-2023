@@ -66,3 +66,5 @@ BULLET_ENEMY_TYPE = "enemy"
 BULLET_SPACESHIP_TYPE = "player"
 
 WHITE = (255, 255, 255)
+
+LIVE = pygame.image.load(os.path.join(IMG_DIR, "Other/SmallHeart.png"))  
