@@ -91,10 +91,6 @@ class Ship_eat(Enemy):
     def update(self, bullet_handler):
         self.move(bullet_handler)
         super().update(bullet_handler)
-
-
-
-
       
 
      

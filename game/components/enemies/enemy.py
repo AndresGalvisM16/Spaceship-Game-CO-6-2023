@@ -19,6 +19,7 @@ class Enemy:
         self.index = 0
         self.shooting_time = 0
         self.is_visible = True
+        self.is_alive = True
 
     def update(self, bullet_handler):
         self.index += 1    
@@ -50,5 +51,3 @@ class Enemy:
     def shoot(self, bullet_handler):
         if self.shooting_time % self.SHOOTING_TIME == 0:
             bullet_handler.add_bullet(BULLET_ENEMY_TYPE, self.rect.center)
-
-                

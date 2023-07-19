@@ -1,18 +1,24 @@
 import pygame
 from game.components.bullets.bullet import Bullet
-from game.utils.constants import BULLET_ENEMY
+from game.utils.constants import BULLET
 
-class BulletEnemy(Bullet):
+class BulletSpaceship(Bullet):
     WIDTH = 9
     HEIGHT = 32
-    SPEED = 20
+    SPEED = 5
 
     def __init__(self, center):
-        self.image = BULLET_ENEMY
+        self.image = BULLET
         self.image = pygame.transform.scale(self.image, (self.WIDTH, self.HEIGHT))
         super().__init__(self.image, center)
+        self.can_shoot = True
 
     def update(self, player):
-        self.rect.y += self.SPEED
+        self.rect.y -= self.SPEED
         super().update(player)
+          
+
+
+
+
 

@@ -1,8 +1,8 @@
 import pygame
 import random
 import time
-from game.utils.constants import ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, BACKGROUND_IMAGES, BACKGROUND_IMAGE_PURPLE, BOSS
-from game.components.spaceship import spaceship
+from game.utils.constants import ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, BACKGROUND_IMAGES, BACKGROUND_IMAGE_PURPLE,BOSS
+from game.components.spaceship import Spaceship
 from game.components.enemies.enemy_handler import EnemyHandler
 from game.components.enemies.ship import AlienEnemy
 from game.components.impacts.impact import Impact
@@ -21,7 +21,7 @@ class Game:
         self.game_speed = 10
         self.x_pos_bg = 0
         self.y_pos_bg = 0
-        self.player = spaceship()
+        self.player = Spaceship()
         self.ship = AlienEnemy()
         self.enemy_handler = EnemyHandler()
         self.impact = Impact()
@@ -31,6 +31,8 @@ class Game:
         self.current_bg = BACKGROUND_IMAGES[self.current_bg_index]
         self.next_bg_index = (self.current_bg_index + 1) % len(BACKGROUND_IMAGES)
         self.next_bg = BACKGROUND_IMAGES[self.next_bg_index]
+
+       
 
     def run(self):
         self.playing = True
@@ -46,31 +48,23 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.playing = False
-            
-            
-
-
-
-
-
+        
     def update(self):
         user_input = pygame.key.get_pressed()
-        self.player.update(self.game_speed, user_input)
+        self.player.update(self.game_speed, user_input, self.bullet_handler)  
         self.player.check_bounds(SCREEN_WIDTH)
         self.enemy_handler.update(self.bullet_handler)
-        self.elapsed_time = time.time() - self.start_time  # Calcular el tiempo transcurrido
+        self.elapsed_time = time.time() - self.start_time 
         self.y_pos_bg += self.game_speed
         self.change_background()
         self.ship.update(self.bullet_handler)
         self.impact.update()
-        self.bullet_handler.update(self.player)
-
+        self.bullet_handler.update(self.player, self.enemy_handler.enemies)
         if not self.player.is_alive:
             pygame.time.delay(300)
             self.playing = False
-
-
-        
+     
+       
 
     def draw(self):
         self.clock.tick(FPS)
@@ -99,8 +93,6 @@ class Game:
 
     def reset_elapsed_time(self):
         self.elapsed_time = 0
-
-
 
 
 
