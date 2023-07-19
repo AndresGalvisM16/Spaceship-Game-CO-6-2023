@@ -1,13 +1,14 @@
 import pygame
 import random
 import time
-from game.utils.constants import ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, BACKGROUND_IMAGES, BACKGROUND_IMAGE_PURPLE,BOSS
-from game.components.spaceship import Spaceship
+from game.utils.constants import ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, BACKGROUND_IMAGES, BACKGROUND_IMAGE_PURPLE,BOSS, WHITE
 from game.components.enemies.enemy_handler import EnemyHandler
 from game.components.enemies.ship import AlienEnemy
 from game.components.impacts.impact import Impact
 from game.components.enemies.Boss import Boss
 from game.components.bullets.bullet_handler import BulletHandler
+from game.utils import text_utils
+from game.components.spaceship import Spaceship
 
 
 class Game:
@@ -18,6 +19,7 @@ class Game:
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.DOUBLEBUF | pygame.HWSURFACE)
         self.clock = pygame.time.Clock()
         self.playing = False
+        self.running = False
         self.game_speed = 10
         self.x_pos_bg = 0
         self.y_pos_bg = 0
@@ -31,13 +33,15 @@ class Game:
         self.current_bg = BACKGROUND_IMAGES[self.current_bg_index]
         self.next_bg_index = (self.current_bg_index + 1) % len(BACKGROUND_IMAGES)
         self.next_bg = BACKGROUND_IMAGES[self.next_bg_index]
+        self.score = 0
+        self.number_deaths = 0
 
        
 
     def run(self):
-        self.playing = True
-        self.start_time = time.time()  # Almacenar el tiempo de inicio del juego
-        while self.playing:
+        self.running = True
+        self.start_time = time.time() 
+        while self.running:
             self.events()
             self.update()
             self.draw()
@@ -47,33 +51,43 @@ class Game:
     def events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.playing = False
+                self.running = False
+            elif event.type == pygame.KEYDOWN and not self.playing:
+                self.reset()
+                self.playing = True
         
+
     def update(self):
-        user_input = pygame.key.get_pressed()
-        self.player.update(self.game_speed, user_input, self.bullet_handler)  
-        self.player.check_bounds(SCREEN_WIDTH)
-        self.enemy_handler.update(self.bullet_handler)
-        self.elapsed_time = time.time() - self.start_time 
-        self.y_pos_bg += self.game_speed
-        self.change_background()
-        self.ship.update(self.bullet_handler)
-        self.impact.update()
-        self.bullet_handler.update(self.player, self.enemy_handler.enemies)
-        if not self.player.is_alive:
-            pygame.time.delay(300)
-            self.playing = False
+        if self.playing:
+            user_input = pygame.key.get_pressed()
+            self.player.update(self.game_speed, user_input, self.bullet_handler)  
+            self.player.check_bounds(SCREEN_WIDTH)
+            self.enemy_handler.update(self.bullet_handler)
+            self.elapsed_time = time.time() - self.start_time 
+            self.y_pos_bg += self.game_speed
+            self.change_background()
+            self.ship.update(self.bullet_handler)
+            self.impact.update()
+            self.bullet_handler.update(self.player, self.enemy_handler.enemies)
+            self.score = self.enemy_handler.enemies_destroyed
+            if not self.player.is_alive:
+                pygame.time.delay(300)
+                self.playing = False
+                self.number_deaths += 1
      
        
 
     def draw(self):
-        self.clock.tick(FPS)
-        self.screen.fill((255, 255, 255))
         self.draw_background()
-        self.impact.draw(self.screen)
-        self.player.draw(self.screen)
-        self.enemy_handler.draw(self.screen)
-        self.bullet_handler.draw(self.screen)
+        if self.playing:
+            self.clock.tick(FPS)
+            self.impact.draw(self.screen)
+            self.player.draw(self.screen)
+            self.enemy_handler.draw(self.screen)
+            self.bullet_handler.draw(self.screen)
+            self.draw_score()
+        else:
+            self.draw_menu()
         pygame.display.update()
         pygame.display.flip()
 
@@ -96,7 +110,25 @@ class Game:
 
 
 
-        
-    
+    def draw_menu(self):
+        if self.number_deaths == 0:
+            text, text_rect = text_utils.get_message("press any key to start", 30, WHITE)
+            self.screen.blit(text, text_rect)
+        else:
+            text,text_rect = text_utils.get_message("press any key to restart", 30, WHITE)
+            score, score_rect = text_utils.get_message(f"your score is:{self.score}", 30, WHITE, height=SCREEN_HEIGHT//2 + 50)
+            self.screen.blit(text, text_rect)
+            self.screen.blit(score, score_rect)
+
+    def draw_score(self):
+        score, score_rect = text_utils.get_message(f"your score is:{self.score}", 20, WHITE, 1000, 40)
+        self.screen.blit(score, score_rect)
+
+
+    def reset(self):
+        self.player.reset()
+        self.enemy_handler.reset()
+        self.bullet_handler.reset()
+        self.score = 0
     
             

@@ -1,14 +1,14 @@
 import pygame
 from game.utils.constants import SPACESHIP, SCREEN_WIDTH, SCREEN_HEIGHT, BULLET_SPACESHIP_TYPE
 from game.components.bullets.bullet_spaceship import BulletSpaceship
-class Spaceship(pygame.sprite.Sprite):
+
+class Spaceship:
     WIDTH = 60
     HEIGHT = 90
     X_POS = (SCREEN_WIDTH // 2) - WIDTH
     Y_POS = 500
     
     def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
         self.image = SPACESHIP
         self.image = pygame.transform.scale(self.image, (self.WIDTH, self.HEIGHT))
         self.rect = self.image.get_rect()
@@ -54,13 +54,22 @@ class Spaceship(pygame.sprite.Sprite):
 
 
 
-
-
-
     def shoot(self, bullet_handler):
             bullet_handler.add_bullet(BULLET_SPACESHIP_TYPE, self.rect.center)
          
 
+ 
+    def reset(self):
+        self.image = SPACESHIP
+        self.image = pygame.transform.scale(self.image, (self.WIDTH, self.HEIGHT))
+        self.rect = self.image.get_rect()
+        self.rect.x = self.X_POS
+        self.rect.y = self.Y_POS
+        self.speed = 10
+        self.is_alive = True
+        self.spacebar_pressed = False  
+        
+      
 
 
 

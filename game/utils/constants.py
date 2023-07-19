@@ -64,3 +64,5 @@ OBSTACLE = pygame.image.load(os.path.join(IMG_DIR, "Obstacle/rock.1.png"))
 BULLET_ENEMY_TYPE = "enemy"
 
 BULLET_SPACESHIP_TYPE = "player"
+
+WHITE = (255, 255, 255)
