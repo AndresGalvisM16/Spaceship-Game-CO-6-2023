@@ -50,5 +50,9 @@ Aquí es donde se encuentra al piloto más legendario de todos los tiempos. Tu n
 ## Power Up
 Tiene dos power up super importantes con la lucha contra el jefe final que son:
 
+## EL ESCUDO
+![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/fcb78cec-d568-455c-a4fc-5fa66b55112b)
+
+
 
 
