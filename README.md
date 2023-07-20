@@ -33,3 +33,4 @@ Nova Kingpin: Es una entidad de la oscuridad que prefiere permanecer oculta en l
 
 ## Boss
 El enemigo más temible de todos: el Jefe Final, el Destructor de Galaxias y tu mayor pesadilla.
+![Uploading image.png…]()
