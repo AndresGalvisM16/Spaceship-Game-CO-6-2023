@@ -26,3 +26,6 @@ Empezaremos con los mas basicos:
 -Aerothorn: Esta nave es un 50% de las dos anteriores. Sus movimientos "zip zap" son tan molestos que cuando están en grupo, es muy difícil salir vivo.
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/3485d3d7-a2eb-4d60-8bf4-4b6dc2f2dcc4)
 
+## El siguiente es.......
+
+Nova Kingpin: Es una entidad de la oscuridad que prefiere permanecer oculta en las profundidades del espacio, acechando desde las sombras.
