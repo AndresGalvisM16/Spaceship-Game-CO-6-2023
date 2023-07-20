@@ -37,7 +37,9 @@ El enemigo más temible de todos: el Jefe Final, el Destructor de Galaxias y tu 
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/62768e5a-7827-4563-9ed3-f4d2698e3c6e)
 vida:100
 
-
+##Rock
+![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/920275c9-3e78-4fdb-8ffd-deead95f61e3)
+daño:1
 
 
 ## Nave Espacial
