@@ -4,3 +4,5 @@ Start Space es un emocionante juego de nave espacial desarrollado utilizando la 
 Los jugadores asumen el papel de un intrépido piloto de nave espacial que debe enfrentarse a un enemigo formidable, el temible "Boss". No será una tarea fácil, ya que este enemigo está fuertemente protegido y cuenta con ataques devastadores. Los jugadores deberán buscar una estrategia para salir victoriosos.
 ## Desafio
 Mientras intentas derrotar al Boss, aparecerán enemigos que no te dejarán derrotarlo tan fácil. Un desafío al que cualquier estaría dispuesto a aceptar.
+## Dificultad
+"Start Space" presenta una única dificultad, pero será lo suficientemente emocionante como para que no puedas parpadear.
