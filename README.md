@@ -6,3 +6,8 @@ Los jugadores asumen el papel de un intrépido piloto de nave espacial que debe 
 Mientras intentas derrotar al Boss, aparecerán enemigos que no te dejarán derrotarlo tan fácil. Un desafío al que cualquier estaría dispuesto a aceptar.
 ## Dificultad
 "Start Space" presenta una única dificultad, pero será lo suficientemente emocionante como para que no puedas parpadear.
+## Controles
+Los controles del juego son sencillos e intuitivos:
+
+Utiliza las flechas para mover la nave espacial en diferentes direcciones.
+Presiona la barra espaciadora para disparar y enfrentarte a los enemigos en tu camino.
