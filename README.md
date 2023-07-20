@@ -13,6 +13,7 @@ Utiliza las flechas para mover la nave espacial en diferentes direcciones.
 Presiona la barra espaciadora para disparar y enfrentarte a los enemigos en tu camino.
 ## Enemigos
 Empezaremos con los mas basicos:
+
 -Voidstreak: Esta nave es muy mala disparando, pero lo suficientemente veloz para molestarte. Cuando hay muchas, se vuelven lo suficientemente peligrosas como para que ya no puedas ignorarlas más.
 -Ovni: Esta nave es lo contrario a Voidstreak. Le gusta disparar desde lejos y te molestará cuando estés distraído en el lugar más inesperado.
 -Aerothorn: Esta nave es un 50% de las dos anteriores. Sus movimientos "zip zap" son tan molestos que cuando están en grupo, es muy difícil salir vivo.
