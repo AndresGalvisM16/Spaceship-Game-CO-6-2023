@@ -65,3 +65,17 @@ Tiene dos power up super importantes con la lucha contra el jefe final que son:
 
 
 
+
+
+
+## FONDO
+Con su hermoso fondo estelar que deja a todos maravillados, "Start Space" transporta a los jugadores a una galaxia llena de maravillas y misterios.
+![Track1](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/645467c3-9057-42e3-bac7-d64735102688)
+![Track120](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/0020438a-4b9d-4615-92d9-a029a828f60b)
+![Track122](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/992fa458-f3dd-49d5-8398-bff8facd5a8f)
+
+
+
+
+
+
