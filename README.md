@@ -21,4 +21,6 @@ Empezaremos con los mas basicos:
 -Ovni: Esta nave es lo contrario a Voidstreak. Le gusta disparar desde lejos y te molestará cuando estés distraído en el lugar más inesperado.
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/eca9cf78-a824-4838-a2aa-5bd6b98c7923)
 
+
+
 -Aerothorn: Esta nave es un 50% de las dos anteriores. Sus movimientos "zip zap" son tan molestos que cuando están en grupo, es muy difícil salir vivo.
