@@ -30,3 +30,6 @@ Empezaremos con los mas basicos:
 
 Nova Kingpin: Es una entidad de la oscuridad que prefiere permanecer oculta en las profundidades del espacio, acechando desde las sombras.
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/bb73abff-737e-4fc6-bc28-ac607b173ea1)
+
+## Boss
+El enemigo más temible de todos: el Jefe Final, el Destructor de Galaxias y tu mayor pesadilla.
