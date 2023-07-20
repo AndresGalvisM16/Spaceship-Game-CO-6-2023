@@ -99,3 +99,29 @@ Con su hermoso fondo estelar que deja a todos maravillados, "Start Space" transp
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##GAME PLAY
+![imagen 1](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/ad0daa59-400c-42f7-9a2e-4a3dddf41d95)
+![imagen 2](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/35f097ca-6be1-468a-aacd-97b2e38dde7d)
+
