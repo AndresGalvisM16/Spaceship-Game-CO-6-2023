@@ -14,7 +14,8 @@ Presiona la barra espaciadora para disparar y enfrentarte a los enemigos en tu c
 ## Enemigos
 Empezaremos con los mas basicos:
 
--Voidstreak: Esta nave es muy mala disparando, pero lo suficientemente veloz para molestarte. Cuando hay muchas, se vuelven lo suficientemente peligrosas como para que ya no puedas ignorarlas más. [image]
+-Voidstreak: Esta nave es muy mala disparando, pero lo suficientemente veloz para molestarte. Cuando hay muchas, se vuelven lo suficientemente peligrosas como para que ya no puedas ignorarlas más. ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/d54738a4-2346-48f5-9f0e-cb02c905fcf6)
+
 
 
 -Ovni: Esta nave es lo contrario a Voidstreak. Le gusta disparar desde lejos y te molestará cuando estés distraído en el lugar más inesperado.
