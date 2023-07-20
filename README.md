@@ -37,8 +37,10 @@ El enemigo más temible de todos: el Jefe Final, el Destructor de Galaxias y tu 
 
 
 
+
+
 ## Nave Espacial
-Aqui es donde se encuentra al piloto mas legendario de todos los tiempos.
+Aquí es donde se encuentra al piloto más legendario de todos los tiempos. Tu nave espacial es la última esperanza de la galaxia en la lucha contra el malvado "Jefe Final" y sus temibles secuaces. Esta nave ha sido diseñada con la tecnología más avanzada, y su potencia de fuego y capacidad de maniobra te darán una ventaja en la batalla. Conocida en toda la galaxia por su resistencia y habilidades de combate, esta nave es la esperanza de todos los habitantes del cosmos. ¡Prepárate para una misión épica y conviértete en una leyenda del espacio!
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/86e5a9d8-9d20-4c77-892a-a8e1feabf47f)
 
 
