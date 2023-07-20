@@ -56,3 +56,12 @@ Tiene dos power up super importantes con la lucha contra el jefe final que son:
 
 
 
+
+
+## LA + VIDA
+![heart](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/d1fb1407-0fd0-4037-9916-36a5b046071e)
+
+
+
+
+
