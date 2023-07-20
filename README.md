@@ -16,25 +16,26 @@ Empezaremos con los mas basicos:
 
 -Voidstreak: Esta nave es muy mala disparando, pero lo suficientemente veloz para molestarte. Cuando hay muchas, se vuelven lo suficientemente peligrosas como para que ya no puedas ignorarlas más. 
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/d54738a4-2346-48f5-9f0e-cb02c905fcf6)
-
+vida:1
 
 -Ovni: Esta nave es lo contrario a Voidstreak. Le gusta disparar desde lejos y te molestará cuando estés distraído en el lugar más inesperado.
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/eca9cf78-a824-4838-a2aa-5bd6b98c7923)
-
+vida: 2
 
 
 -Aerothorn: Esta nave es un 50% de las dos anteriores. Sus movimientos "zip zap" son tan molestos que cuando están en grupo, es muy difícil salir vivo.
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/3485d3d7-a2eb-4d60-8bf4-4b6dc2f2dcc4)
-
+vida:2
 ## El siguiente es.......
 
 Nova Kingpin: Es una entidad de la oscuridad que prefiere permanecer oculta en las profundidades del espacio, acechando desde las sombras.
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/bb73abff-737e-4fc6-bc28-ac607b173ea1)
+vida:20
 
 ## Boss
 El enemigo más temible de todos: el Jefe Final, el Destructor de Galaxias y tu mayor pesadilla.
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/62768e5a-7827-4563-9ed3-f4d2698e3c6e)
-
+vida:100
 
 
 
