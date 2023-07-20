@@ -44,3 +44,11 @@ Aquí es donde se encuentra al piloto más legendario de todos los tiempos. Tu n
 ![image](https://github.com/AndresGalvisM16/Spaceship-Game-CO-6-2023/assets/139399827/86e5a9d8-9d20-4c77-892a-a8e1feabf47f)
 
 
+
+
+
+## Power Up
+Tiene dos power up super importantes con la lucha contra el jefe final que son:
+
+
+
