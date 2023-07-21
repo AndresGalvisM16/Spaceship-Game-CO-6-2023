@@ -20,6 +20,7 @@ class Enemy:
         self.shooting_time = 0
         self.is_visible = True
         self.is_alive = True
+        self.live = 1
 
     def update(self, bullet_handler):
         self.index += 1    
@@ -28,7 +29,12 @@ class Enemy:
         self.move(bullet_handler)
         if self.rect.y >= SCREEN_HEIGHT:
             self.is_visible = False
-        
+    
+    def receive_damage(self):
+        self.live -= 1
+        if self.live <= 0:
+            self.is_alive = False
+            self.is_visible = False
 
 
     def draw(self, screen):

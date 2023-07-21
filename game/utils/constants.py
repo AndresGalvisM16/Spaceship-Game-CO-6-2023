@@ -59,7 +59,11 @@ FONT_STYLE = 'freesansbold.ttf'
 LEFT = "left"
 RIGHT = "right"
 
-OBSTACLE = pygame.image.load(os.path.join(IMG_DIR, "Obstacle/rock.1.png"))
+ROCK = pygame.image.load(os.path.join(IMG_DIR, "Obstacle/rock1.png"))
+
+ROCK_RED = pygame.image.load(os.path.join(IMG_DIR, "Obstacle/rockred.png")) 
+
+
 
 BULLET_ENEMY_TYPE = "enemy"
 
@@ -68,3 +72,9 @@ BULLET_SPACESHIP_TYPE = "player"
 WHITE = (255, 255, 255)
 
 LIVE = pygame.image.load(os.path.join(IMG_DIR, "Other/SmallHeart.png"))  
+
+FUND = pygame.image.load(os.path.join(IMG_DIR, "Other/Fondo_one.png"))
+
+FUND2 = pygame.image.load(os.path.join(IMG_DIR, "Other/Fondo_two.png"))
+
+HEART_RED = pygame.image.load(os.path.join(IMG_DIR, "Other/heart.png"))
